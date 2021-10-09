@@ -13,7 +13,7 @@
 		1CBA5F6627121629004295B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6527121629004295B3 /* Preview Assets.xcassets */; };
 		1CBA5F7127121629004295B3 /* Quick_QR_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F7027121629004295B3 /* Quick_QR_ReaderTests.swift */; };
 		1CBA5F7C27121629004295B3 /* Quick_QR_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F7B27121629004295B3 /* Quick_QR_ReaderUITests.swift */; };
-		1CBA5F8D27121701004295B3 /* QRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8C27121701004295B3 /* QRData.swift */; };
+		1CBA5F8D27121701004295B3 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8C27121701004295B3 /* Documents.swift */; };
 		1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8E2712171E004295B3 /* QRModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +47,7 @@
 		1CBA5F7727121629004295B3 /* Quick QR ReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick QR ReaderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CBA5F7B27121629004295B3 /* Quick_QR_ReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quick_QR_ReaderUITests.swift; sourceTree = "<group>"; };
 		1CBA5F7D27121629004295B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1CBA5F8C27121701004295B3 /* QRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRData.swift; sourceTree = "<group>"; };
+		1CBA5F8C27121701004295B3 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		1CBA5F8E2712171E004295B3 /* QRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,7 +154,7 @@
 		1CBA5F8B27121655004295B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1CBA5F8C27121701004295B3 /* QRData.swift */,
+				1CBA5F8C27121701004295B3 /* Documents.swift */,
 				1CBA5F8E2712171E004295B3 /* QRModel.swift */,
 			);
 			path = Model;
@@ -307,7 +307,7 @@
 			files = (
 				1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */,
 				1CBA5F6127121627004295B3 /* MainView.swift in Sources */,
-				1CBA5F8D27121701004295B3 /* QRData.swift in Sources */,
+				1CBA5F8D27121701004295B3 /* Documents.swift in Sources */,
 				1CBA5F5F27121627004295B3 /* Quick_QR_ReaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +475,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "YamanBoztepe.Quick-QR-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -497,6 +498,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "YamanBoztepe.Quick-QR-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
