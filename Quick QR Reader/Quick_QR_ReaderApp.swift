@@ -11,7 +11,7 @@ import SwiftUI
 struct Quick_QR_ReaderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

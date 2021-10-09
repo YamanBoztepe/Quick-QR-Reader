@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		1CBA5F5F27121627004295B3 /* Quick_QR_ReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F5E27121627004295B3 /* Quick_QR_ReaderApp.swift */; };
-		1CBA5F6127121627004295B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6027121627004295B3 /* ContentView.swift */; };
+		1CBA5F6127121627004295B3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6027121627004295B3 /* MainView.swift */; };
 		1CBA5F6327121629004295B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6227121629004295B3 /* Assets.xcassets */; };
 		1CBA5F6627121629004295B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6527121629004295B3 /* Preview Assets.xcassets */; };
 		1CBA5F7127121629004295B3 /* Quick_QR_ReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F7027121629004295B3 /* Quick_QR_ReaderTests.swift */; };
 		1CBA5F7C27121629004295B3 /* Quick_QR_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F7B27121629004295B3 /* Quick_QR_ReaderUITests.swift */; };
+		1CBA5F8D27121701004295B3 /* QRData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8C27121701004295B3 /* QRData.swift */; };
+		1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8E2712171E004295B3 /* QRModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +37,7 @@
 /* Begin PBXFileReference section */
 		1CBA5F5B27121627004295B3 /* Quick QR Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick QR Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CBA5F5E27121627004295B3 /* Quick_QR_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quick_QR_ReaderApp.swift; sourceTree = "<group>"; };
-		1CBA5F6027121627004295B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1CBA5F6027121627004295B3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		1CBA5F6227121629004295B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1CBA5F6527121629004295B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1CBA5F6727121629004295B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +47,8 @@
 		1CBA5F7727121629004295B3 /* Quick QR ReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Quick QR ReaderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CBA5F7B27121629004295B3 /* Quick_QR_ReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quick_QR_ReaderUITests.swift; sourceTree = "<group>"; };
 		1CBA5F7D27121629004295B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CBA5F8C27121701004295B3 /* QRData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRData.swift; sourceTree = "<group>"; };
+		1CBA5F8E2712171E004295B3 /* QRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +99,10 @@
 		1CBA5F5D27121627004295B3 /* Quick QR Reader */ = {
 			isa = PBXGroup;
 			children = (
+				1CBA5F8B27121655004295B3 /* Model */,
+				1CBA5F8A2712164D004295B3 /* ViewModel */,
+				1CBA5F8927121645004295B3 /* View */,
 				1CBA5F5E27121627004295B3 /* Quick_QR_ReaderApp.swift */,
-				1CBA5F6027121627004295B3 /* ContentView.swift */,
 				1CBA5F6227121629004295B3 /* Assets.xcassets */,
 				1CBA5F6727121629004295B3 /* Info.plist */,
 				1CBA5F6427121629004295B3 /* Preview Content */,
@@ -128,6 +134,46 @@
 				1CBA5F7D27121629004295B3 /* Info.plist */,
 			);
 			path = "Quick QR ReaderUITests";
+			sourceTree = "<group>";
+		};
+		1CBA5F8927121645004295B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1CBA5F9027121C62004295B3 /* Main */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1CBA5F8A2712164D004295B3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1CBA5F8B27121655004295B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1CBA5F8C27121701004295B3 /* QRData.swift */,
+				1CBA5F8E2712171E004295B3 /* QRModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1CBA5F9027121C62004295B3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1CBA5F6027121627004295B3 /* MainView.swift */,
+				1CBA5F9127121C70004295B3 /* Custom */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1CBA5F9127121C70004295B3 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +305,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CBA5F6127121627004295B3 /* ContentView.swift in Sources */,
+				1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */,
+				1CBA5F6127121627004295B3 /* MainView.swift in Sources */,
+				1CBA5F8D27121701004295B3 /* QRData.swift in Sources */,
 				1CBA5F5F27121627004295B3 /* Quick_QR_ReaderApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
