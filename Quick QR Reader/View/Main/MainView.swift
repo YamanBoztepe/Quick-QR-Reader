@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
+    @ObservedObject private var viewModel = MainViewModel()
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        ZStack {
+            ScannerView(completion: viewModel.handleScan(result:))
+            ScanContentView(windowSettings: $viewModel.windowSettings)
+        }
+        .ignoresSafeArea()
     }
 }
 
