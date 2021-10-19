@@ -12,32 +12,19 @@ struct WindowSettingsView: View {
     @State private var isHidden = true
     
     var body: some View {
-        if isHidden { settingsHeader } else { scrollableContent }
+        if isHidden {
+            SectionHeader(isHidden: $isHidden, text: "Settings", color: .white)
+        } else {
+            scrollableContent
+        }
     }
     
     var scrollableContent: some View {
         ScrollView(.vertical) {
-            settingsHeader
+            SectionHeader(isHidden: $isHidden, text: "Settings", color: .white)
             settings
         }
         .aspectRatio(3, contentMode: .fit)
-    }
-    
-    var settingsHeader: some View {
-        Button(action: {
-            isHidden.toggle()
-        }) {
-            HStack {
-                Text("Settings")
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .font(.headline.weight(.semibold))
-                    .padding([.leading, .bottom], 8)
-                Spacer()
-                Image(systemName: isHidden ? "arrow.right" : "arrow.down")
-                Spacer()
-            }
-            .foregroundColor(.black)
-        }
     }
     
     var settings: some View {
@@ -46,7 +33,7 @@ struct WindowSettingsView: View {
                 .foregroundColor(.black)
             Slider(value: $windowSettings.scale, in: 0.1...0.4) { isEditing in
                 if !isEditing {
-                    windowSettings.saveSettings()
+                    StoreData.save(data: windowSettings, key: .windowSettings)
                 }
             }
             .accentColor(.blue)
@@ -55,7 +42,7 @@ struct WindowSettingsView: View {
                 .foregroundColor(.black)
             Slider(value: $windowSettings.lineWidth, in: 1...20) { isEditing in
                 if !isEditing {
-                    windowSettings.saveSettings()
+                    StoreData.save(data: windowSettings, key: .windowSettings)
                 }
             }
             .accentColor(.blue)

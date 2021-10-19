@@ -19,11 +19,9 @@ struct UpperButtonsView: View {
                 
                 Spacer()
                 
-                Button(action: {
-                    
-                }) {
-                    createImage(systemName: "line.horizontal.3.circle", size: 60)
-                }
+                NavigationLink(destination: HistoryView()) {
+                        createImage(systemName: "line.horizontal.3.circle", size: 60)
+                    }
             }
     }
 }

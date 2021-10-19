@@ -12,7 +12,14 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            ScannerView(completion: viewModel.handleScan(result:))
+            ScannerView { result in
+                switch result {
+                case .success(let data):
+                    print("MainView: \(data)")
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
             ScanContentView(windowSettings: $viewModel.windowSettings)
         }
         .ignoresSafeArea()

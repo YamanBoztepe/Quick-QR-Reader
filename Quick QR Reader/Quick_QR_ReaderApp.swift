@@ -11,7 +11,10 @@ import SwiftUI
 struct Quick_QR_ReaderApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            NavigationView {
+                MainView()
+                    .navigationBarHidden(true)
+            }
         }
     }
 }

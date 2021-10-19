@@ -8,6 +8,10 @@
 import Foundation
 
 class Documents {
+    static let shared = Documents()
+    
+    private init() { }
+    
     // Path names for accessing document
     enum Path: String {
         case qrDataPath = "qr.data"
@@ -18,7 +22,7 @@ class Documents {
     
     func load<T: Decodable>(from path: Path, as: T.Type, completion: @escaping DocumentResults<T>) {
         DispatchQueue.global(qos: .background).async { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, self.fileExists else { return }
             
             do {
                 let data = try Data(contentsOf: self.getFileURL(for: path))
@@ -31,6 +35,26 @@ class Documents {
         }
     }
     
+    func append<T: Codable>(_ data: T, in path: Path) {
+        DispatchQueue.global(qos: .background).async {
+            if self.fileExists {
+                self.load(from: path, as: [T].self) { result in
+                    switch result {
+                    case.success(let loadedData):
+                        var newData = loadedData
+                        newData.append(data)
+                        self.save(newData, in: path)
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            } else {
+                self.save([data], in: path)
+            }
+        }
+    }
+    
     func save<T: Encodable>(_ data: T, in path: Path) {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let self = self else { return }
@@ -38,14 +62,14 @@ class Documents {
             do {
                 let jsonData = try JSONEncoder().encode(data)
                 try jsonData.write(to: self.getFileURL(for: path))
-                
+                print("Data successfully saved in Documents. Data : \(data)")
             } catch {
                 print(error.localizedDescription)
             }
         }
     }
     
-    // MARK:- Helper Methods
+    // MARK:- Helpers
     private func getFileURL(for path: Path) -> URL {
         do {
             let documents = try FileManager.default.url(for: .documentDirectory,
@@ -58,5 +82,10 @@ class Documents {
         } catch {
             fatalError("Can't find documents directory")
         }
+    }
+    
+    private var fileExists: Bool {
+        let filePath = self.getFileURL(for: .qrDataPath).path
+        return FileManager.default.fileExists(atPath: filePath)
     }
 }

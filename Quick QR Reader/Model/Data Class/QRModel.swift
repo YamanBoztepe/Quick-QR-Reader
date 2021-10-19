@@ -7,20 +7,25 @@
 
 import Foundation
 
-struct QRModel: Codable {
+struct QRModel: Codable, Identifiable, Equatable {
+    var id = UUID()
     let content: String
     var isFavorite: Bool = false
     
-    private let createdDate: Date
+    let createdDate: Date
     var formattedDate: String {
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateformat.dateStyle = .short
+        dateformat.dateStyle = .long
         return dateformat.string(from: createdDate)
     }
     
     init(content: String, createdDate: Date) {
         self.content = content
         self.createdDate = createdDate
+    }
+    
+    static func ==(lhs: QRModel, rhs: QRModel) -> Bool {
+        return lhs.content == rhs.content && lhs.isFavorite == rhs.isFavorite && lhs.createdDate == rhs.createdDate
     }
 }

@@ -13,7 +13,7 @@ enum CaptureError: Error {
 }
 
 class Camera {
-    static var shared = Camera()
+    static let shared = Camera()
     
     var captureSession = AVCaptureSession()
     private var torchOn = false

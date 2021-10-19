@@ -15,6 +15,9 @@
 		1C8388AD27147E52008FC54C /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8388AC27147E52008FC54C /* Camera.swift */; };
 		1C8388B2271482C5008FC54C /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8388B1271482C5008FC54C /* HistoryView.swift */; };
 		1C8388B527148350008FC54C /* HistoryDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8388B427148350008FC54C /* HistoryDataView.swift */; };
+		1CBA4DD6271D82FB0021EA96 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA4DD5271D82FB0021EA96 /* HistoryViewModel.swift */; };
+		1CBA4DD9271DB7E90021EA96 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA4DD8271DB7E90021EA96 /* SectionHeader.swift */; };
+		1CBA4DDB271E17200021EA96 /* TopHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA4DDA271E17200021EA96 /* TopHeader.swift */; };
 		1CBA5F5F27121627004295B3 /* Quick_QR_ReaderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F5E27121627004295B3 /* Quick_QR_ReaderApp.swift */; };
 		1CBA5F6127121627004295B3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6027121627004295B3 /* MainView.swift */; };
 		1CBA5F6327121629004295B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CBA5F6227121629004295B3 /* Assets.xcassets */; };
@@ -56,6 +59,9 @@
 		1C8388AC27147E52008FC54C /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		1C8388B1271482C5008FC54C /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		1C8388B427148350008FC54C /* HistoryDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataView.swift; sourceTree = "<group>"; };
+		1CBA4DD5271D82FB0021EA96 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		1CBA4DD8271DB7E90021EA96 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		1CBA4DDA271E17200021EA96 /* TopHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopHeader.swift; sourceTree = "<group>"; };
 		1CBA5F5B27121627004295B3 /* Quick QR Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Quick QR Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CBA5F5E27121627004295B3 /* Quick_QR_ReaderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quick_QR_ReaderApp.swift; sourceTree = "<group>"; };
 		1CBA5F6027121627004295B3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -153,6 +159,15 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		1CBA4DD7271DB7A40021EA96 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				1CBA4DD8271DB7E90021EA96 /* SectionHeader.swift */,
+				1CBA4DDA271E17200021EA96 /* TopHeader.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		1CBA5F5227121627004295B3 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +234,7 @@
 			children = (
 				1CBA5F9027121C62004295B3 /* Main */,
 				1C8388B0271482B1008FC54C /* History */,
+				1CBA4DD7271DB7A40021EA96 /* Custom */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -227,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				1CFF389F2713010F002C3E75 /* MainViewModel.swift */,
+				1CBA4DD5271D82FB0021EA96 /* HistoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -397,11 +414,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C8388AB271477AC008FC54C /* Extensions+View.swift in Sources */,
+				1CBA4DD6271D82FB0021EA96 /* HistoryViewModel.swift in Sources */,
 				1CFF38A827130B74002C3E75 /* LowerButtonsView.swift in Sources */,
 				1C308EB12713AA3C0092DD94 /* WindowSettingsView.swift in Sources */,
 				1CFF38A02713010F002C3E75 /* MainViewModel.swift in Sources */,
 				1CFF389E2713004C002C3E75 /* WindowSettings.swift in Sources */,
+				1CBA4DDB271E17200021EA96 /* TopHeader.swift in Sources */,
 				1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */,
+				1CBA4DD9271DB7E90021EA96 /* SectionHeader.swift in Sources */,
 				1CFF38992712EB0F002C3E75 /* WindowView.swift in Sources */,
 				1C8388B527148350008FC54C /* HistoryDataView.swift in Sources */,
 				1C8388B2271482C5008FC54C /* HistoryView.swift in Sources */,
