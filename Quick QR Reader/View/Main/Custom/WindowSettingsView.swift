@@ -13,7 +13,7 @@ struct WindowSettingsView: View {
     
     var body: some View {
         if isHidden {
-            SectionHeader(isHidden: $isHidden, text: "Settings", color: .white)
+            SectionHeader(isHidden: $isHidden, text: "Settings", color: .white.opacity(0.5))
         } else {
             scrollableContent
         }

@@ -14,7 +14,9 @@ struct SectionHeader: View {
     
     var body: some View {
         Button(action: {
-            isHidden.toggle()
+            withAnimation(.spring()) {
+                isHidden.toggle()
+            }
         }) {
             HStack {
                 Text(text)

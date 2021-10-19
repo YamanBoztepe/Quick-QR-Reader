@@ -13,7 +13,7 @@ struct ScanContentView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(.gray.opacity(0.8))
+                .foregroundColor(.white.opacity(0.2))
             
             VStack {
                 scanArea
