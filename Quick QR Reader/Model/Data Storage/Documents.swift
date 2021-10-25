@@ -62,7 +62,6 @@ class Documents {
             do {
                 let jsonData = try JSONEncoder().encode(data)
                 try jsonData.write(to: self.getFileURL(for: path))
-                print("Data successfully saved in Documents. Data : \(data)")
             } catch {
                 print(error.localizedDescription)
             }

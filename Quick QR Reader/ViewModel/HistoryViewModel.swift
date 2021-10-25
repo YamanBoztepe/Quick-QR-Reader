@@ -13,7 +13,8 @@ class HistoryViewModel: ObservableObject {
     @Published var isFavHidden: Bool = true
     @Published var dynamicOpacity: Double = 1
     @Published var repeatAgain = false
-    let timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+    @Published var presentableData = ScanResult(shouldPresent: false, content: "")
+    var timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
     // MARK:- Get and Save Data in Documents
     func getData() {
@@ -35,6 +36,10 @@ class HistoryViewModel: ObservableObject {
     }
     
     // MARK:- Wink Effect
+    func stopTimer() {
+        timer.upstream.connect().cancel()
+    }
+    
     func winkEffect() {
         if !repeatAgain {
             dynamicOpacity -= 0.01

@@ -12,17 +12,13 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            ScannerView { result in
-                switch result {
-                case .success(let data):
-                    print("MainView: \(data)")
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
-            }
+            ScannerView(startScanning: $viewModel.startScanning, completion: viewModel.handleScan(result:))
             ScanContentView(windowSettings: $viewModel.windowSettings)
         }
         .ignoresSafeArea()
+        .fullScreenCover(isPresented: $viewModel.metadataOutput.shouldPresent,
+                         onDismiss: { viewModel.startScanning = true },
+                         content: { presentOutput(viewModel.metadataOutput.content) })
     }
 }
 

@@ -18,7 +18,6 @@ struct HistoryView: View {
                     .padding(.top, geometry.safeAreaInsets.top + 8)
                 historyBody
                 favoritesBody
-                
                 Spacer()
             }
             .padding(.bottom, geometry.safeAreaInsets.bottom)
@@ -27,6 +26,12 @@ struct HistoryView: View {
             .navigationBarHidden(true)
             .onAppear(perform: viewModel.getData)
             .onReceive(viewModel.timer) { _ in viewModel.winkEffect() }
+            .onChange(of: viewModel.presentableData.shouldPresent) { _ in
+                viewModel.stopTimer()
+            }
+            .fullScreenCover(isPresented: $viewModel.presentableData.shouldPresent) {
+                presentOutput(viewModel.presentableData.content)
+            }
         }
     }
     
@@ -51,7 +56,7 @@ struct HistoryView: View {
     }
     
     var historyHeader: some View {
-        SectionHeader(isHidden: $viewModel.isHistoryHidden, text: "History", color: .white)
+        SectionHeader(value: $viewModel.isHistoryHidden, text: "History", color: .white)
             .frame(height: 50)
             .background(
                 Rectangle()
@@ -65,15 +70,19 @@ struct HistoryView: View {
     
     var scrollableHistory: some View {
         ScrollView(.vertical) {
-            SectionHeader(isHidden: $viewModel.isHistoryHidden, text: "History", color: .white)
+            SectionHeader(value: $viewModel.isHistoryHidden, text: "History", color: .white)
             if viewModel.data.isEmpty {
                 Text("You don't have any scan history to display.")
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
             } else {
-                ForEach(viewModel.data.indices) { index in
-                    HistoryDataView(qrModel: $viewModel.data[index], saveData: viewModel.saveData)
+                LazyVStack {
+                    ForEach(viewModel.data.indices) { index in
+                        HistoryDataView(qrModel: $viewModel.data[index],
+                                        presentableData: $viewModel.presentableData,
+                                        saveData: viewModel.saveData)
+                    }
                 }
             }
         }
@@ -90,7 +99,7 @@ struct HistoryView: View {
     }
     
     var favoritesHeader: some View {
-        SectionHeader(isHidden: $viewModel.isFavHidden, text: "Favorites",color: .white)
+        SectionHeader(value: $viewModel.isFavHidden, text: "Favorites",color: .white)
             .frame(height: 50)
             .background(
                 Rectangle()
@@ -103,11 +112,15 @@ struct HistoryView: View {
     
     var scrollableFavorite: some View {
         ScrollView(.vertical) {
-            SectionHeader(isHidden: $viewModel.isFavHidden, text: "Favorites", color: .white)
+            SectionHeader(value: $viewModel.isFavHidden, text: "Favorites", color: .white)
             if viewModel.data.contains(where: { $0.isFavorite }) {
-                ForEach(viewModel.data.indices) { index in
-                    if viewModel.data[index].isFavorite {
-                        HistoryDataView(qrModel: $viewModel.data[index], saveData: viewModel.saveData)
+                LazyVStack {
+                    ForEach(viewModel.data.indices) { index in
+                        if viewModel.data[index].isFavorite {
+                            HistoryDataView(qrModel: $viewModel.data[index],
+                                            presentableData: $viewModel.presentableData,
+                                            saveData: viewModel.saveData)
+                        }
                     }
                 }
             } else {

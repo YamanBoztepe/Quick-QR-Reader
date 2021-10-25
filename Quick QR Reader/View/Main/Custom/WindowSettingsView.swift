@@ -13,7 +13,7 @@ struct WindowSettingsView: View {
     
     var body: some View {
         if isHidden {
-            SectionHeader(isHidden: $isHidden, text: "Settings", color: .white.opacity(0.5))
+            SectionHeader(value: $isHidden, text: "Settings", color: .white)
         } else {
             scrollableContent
         }
@@ -21,7 +21,7 @@ struct WindowSettingsView: View {
     
     var scrollableContent: some View {
         ScrollView(.vertical) {
-            SectionHeader(isHidden: $isHidden, text: "Settings", color: .white)
+            SectionHeader(value: $isHidden, text: "Settings", color: .white)
             settings
         }
         .aspectRatio(3, contentMode: .fit)

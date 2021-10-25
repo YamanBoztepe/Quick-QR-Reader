@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct SectionHeader: View {
-    @Binding var isHidden: Bool
+    @Binding var value: Bool
     var text: String
     var color: Color
     
     var body: some View {
         Button(action: {
-            withAnimation(.spring()) {
-                isHidden.toggle()
-            }
+            value.toggle()
         }) {
             HStack {
                 Text(text)
@@ -24,7 +22,7 @@ struct SectionHeader: View {
                     .font(.headline.weight(.semibold))
                     .padding([.leading, .bottom], 8)
                 Spacer()
-                Image(systemName: isHidden ? "arrow.right" : "arrow.down")
+                Image(systemName: value ? "arrow.right" : "arrow.down")
                 Spacer()
             }
             .foregroundColor(color)
@@ -34,7 +32,7 @@ struct SectionHeader: View {
 
 struct SectionHeader_Previews: PreviewProvider {
     static var previews: some View {
-        SectionHeader(isHidden: .constant(false), text: "Tap", color: .black)
+        SectionHeader(value: .constant(false), text: "Tap", color: .black)
             .previewLayout(.sizeThatFits)
     }
 }

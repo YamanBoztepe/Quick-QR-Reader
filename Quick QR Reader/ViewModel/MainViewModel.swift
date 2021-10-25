@@ -9,6 +9,8 @@ import Foundation
 
 class MainViewModel: ObservableObject {
     @Published var windowSettings = WindowSettings(scale: 0.3, lineWidth: 10)
+    @Published var metadataOutput = ScanResult(shouldPresent: false, content: "")
+    @Published var startScanning = true
     
     init() {
         getSettings()
@@ -23,7 +25,8 @@ class MainViewModel: ObservableObject {
     func handleScan(result: Result<QRModel, CaptureError>) {
         switch result {
         case .success(let result):
-            print(result.formattedDate)
+            metadataOutput = ScanResult(shouldPresent: true,
+                                        content: result.content)
         case .failure(let error):
             print(error.localizedDescription)
         }

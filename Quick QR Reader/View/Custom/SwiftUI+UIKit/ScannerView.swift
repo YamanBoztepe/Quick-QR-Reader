@@ -11,9 +11,11 @@ import AVFoundation
 struct ScannerView: UIViewControllerRepresentable {
     typealias ScannerResult = (Result<QRModel, CaptureError>) -> Void
     
+    @Binding var startScanning: Bool
     var completion: ScannerResult
     
-    init(completion: @escaping ScannerResult) {
+    init(startScanning: Binding<Bool>, completion: @escaping ScannerResult) {
+        self._startScanning = startScanning
         self.completion = completion
     }
     
@@ -40,13 +42,12 @@ struct ScannerView: UIViewControllerRepresentable {
         
         // Handling Output
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-            guard let metadataObject = metadataObjects.first,
+            guard parent.startScanning == true,
+                  let metadataObject = metadataObjects.first,
                   let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
                   let stringValue = readableObject.stringValue else { return }
             
-            if Camera.shared.captureSession.isRunning {
-                Camera.shared.captureSession.stopRunning()
-            }
+            parent.startScanning = false
             
             let result = QRModel(content: stringValue, createdDate: Date())
             
@@ -77,16 +78,12 @@ struct ScannerView: UIViewControllerRepresentable {
         
         override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
-            if !captureSession.isRunning {
-                captureSession.startRunning()
-            }
+            startCapturing()
         }
         
         override func viewWillDisappear(_ animated: Bool) {
             super.viewWillDisappear(animated)
-            if captureSession.isRunning {
-                captureSession.stopRunning()
-            }
+            stopCapturing()
         }
         
         // Methods for Setting Input and Output
@@ -102,6 +99,25 @@ struct ScannerView: UIViewControllerRepresentable {
             Camera.shared.setOutput(target: delegate) { error in
                 guard let error = error else { return }
                 self.delegate?.didFail(reason: error)
+            }
+        }
+        
+        // Methods for capturing
+        private func startCapturing() {
+            if !captureSession.isRunning {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.captureSession.startRunning()
+                }
+            }
+        }
+        
+        private func stopCapturing() {
+            if captureSession.isRunning {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.captureSession.stopRunning()
+                }
             }
         }
         
