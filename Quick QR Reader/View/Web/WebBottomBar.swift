@@ -54,7 +54,7 @@ struct WebBottomBar: View {
 
 struct WebBottomBar_Previews: PreviewProvider {
     static var previews: some View {
-        WebBottomBar(actions: .constant(WebActions(shouldLoad: false, backButtonTapped: false, safariButtonTapped: false, forwardButtonTapped: false, shareButtonTapped: false)))
+        WebBottomBar(actions: .constant(WebActions(shouldLoad: .load, backButtonTapped: false, safariButtonTapped: false, forwardButtonTapped: false, shareButtonTapped: false)))
             .previewLayout(.sizeThatFits)
     }
 }

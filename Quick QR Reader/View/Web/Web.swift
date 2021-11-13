@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct Web: View {
-    @Environment(\.scenePhase) var scenePhase
     @ObservedObject private var viewModel = WebViewModel()
     
     @State var url: URL
@@ -19,7 +18,7 @@ struct Web: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                WebBar(reload: $viewModel.actions.shouldLoad, url: shortURL)
+                WebBar(shouldLoad: $viewModel.actions.shouldLoad, url: shortURL)
                     .frame(height: geometry.size.height/35)
                     .padding(.top, geometry.safeAreaInsets.top + 16)
                 WebView(actions: $viewModel.actions, url: $url)
@@ -27,9 +26,6 @@ struct Web: View {
                     .frame(height: geometry.size.height/35)
                     .font(.system(size: geometry.size.height/35))
                     .padding(.bottom, geometry.safeAreaInsets.bottom + 16)
-            }
-            .onChange(of: scenePhase) { value in
-                
             }
             .background(Color.black)
             .ignoresSafeArea()

@@ -8,7 +8,13 @@
 import Foundation
 
 struct WebActions {
-    var shouldLoad = true
+    enum RequestType {
+        case load
+        case reload
+        case idle
+    }
+    
+    var shouldLoad: RequestType = .idle
     var backButtonTapped = false
     var safariButtonTapped = false
     var forwardButtonTapped = false
@@ -18,7 +24,7 @@ struct WebActions {
     var canGoForward = false
     
     mutating func reset() {
-        shouldLoad = false
+        shouldLoad = .idle
         backButtonTapped = false
         safariButtonTapped = false
         forwardButtonTapped = false

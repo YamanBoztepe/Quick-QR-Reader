@@ -40,17 +40,20 @@ struct WebView: UIViewRepresentable {
     
     // MARK:- Actions
     private func load(wkWebView: WKWebView) {
-        guard actions.shouldLoad else { return }
-        let request = URLRequest(url: wkWebView.url ?? url)
-        
         if let loadedURL = wkWebView.url {
-            if loadedURL == url {
-                wkWebView.reload()
-            } else {
-                wkWebView.load(request)
-            }
+            let request = URLRequest(url: loadedURL)
             
-        } else {
+            switch actions.shouldLoad {
+            case .load:
+                wkWebView.load(request)
+            case .reload:
+                wkWebView.reload()
+            case .idle:
+                return
+            }
+        } else { // Means it's first time to load web page
+            let request = URLRequest(url: url)
+            loadWebView()
             wkWebView.load(request)
         }
     }
@@ -74,6 +77,12 @@ struct WebView: UIViewRepresentable {
         // TODO: Will be implemented
     }
     
+    private func loadWebView() {
+        if actions.shouldLoad == .idle {
+            actions.shouldLoad = .load
+        }
+    }
+    
     // MARK:- Coordinator Object
     class Coordinator: NSObject, WKNavigationDelegate, WKUIDelegate {
         var wkWebView: WebView
@@ -88,9 +97,7 @@ struct WebView: UIViewRepresentable {
         }
         
         func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-            if !wkWebView.actions.shouldLoad {
-                wkWebView.actions.shouldLoad = true
-            }
+            wkWebView.loadWebView()
         }
         
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -106,7 +113,7 @@ struct WebView: UIViewRepresentable {
         
         func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
             if navigationAction.targetFrame == nil {
-                wkWebView.actions.shouldLoad = true
+                wkWebView.loadWebView()
                 webView.load(navigationAction.request)
             }
             return nil

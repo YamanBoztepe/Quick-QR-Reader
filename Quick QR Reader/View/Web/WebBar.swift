@@ -9,7 +9,7 @@ import SwiftUI
 
 struct WebBar: View {
     @Environment(\.presentationMode) var presentationMode
-    @Binding var reload: Bool
+    @Binding var shouldLoad: WebActions.RequestType
     let url: String
     
     var body: some View {
@@ -17,7 +17,7 @@ struct WebBar: View {
             doneButton
             urlField
             reloadButton
-                .disabled(reload)
+                .disabled(shouldLoad == .idle)
                 .padding(.trailing, 8)
         }
         .background(Color.black)
@@ -47,8 +47,8 @@ struct WebBar: View {
     }
     
     var reloadButton: some View {
-        Button(action: { reload.toggle() }) {
-            if reload {
+        Button(action: { shouldLoad = .reload }) {
+            if shouldLoad != .idle {
                 ProgressView()
                     .progressViewStyle(CircularProgressViewStyle(tint: .white))
             } else {
@@ -61,7 +61,7 @@ struct WebBar: View {
 
 struct WebBar_Previews: PreviewProvider {
     static var previews: some View {
-        WebBar(reload: .constant(true), url: "google.com")
+        WebBar(shouldLoad: .constant(.load), url: "google.com")
             .previewLayout(.sizeThatFits)
     }
 }
