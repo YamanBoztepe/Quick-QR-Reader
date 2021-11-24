@@ -33,6 +33,9 @@
 		1CBA5F7C27121629004295B3 /* Quick_QR_ReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F7B27121629004295B3 /* Quick_QR_ReaderUITests.swift */; };
 		1CBA5F8D27121701004295B3 /* Documents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8C27121701004295B3 /* Documents.swift */; };
 		1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBA5F8E2712171E004295B3 /* QRModel.swift */; };
+		1CBAD968274A56A8000DA183 /* GeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBAD967274A56A8000DA183 /* GeneratorView.swift */; };
+		1CBAD96C274A93F1000DA183 /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBAD96B274A93F1000DA183 /* KeyboardManager.swift */; };
+		1CBAD970274AABAA000DA183 /* GeneratorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBAD96F274AABAA000DA183 /* GeneratorViewModel.swift */; };
 		1CC0371B271F1CAA00400C86 /* WebBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CC0371A271F1CAA00400C86 /* WebBar.swift */; };
 		1CE6C384271F02F4002C227D /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6C383271F02F4002C227D /* WebView.swift */; };
 		1CE6C388271F072A002C227D /* Web.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE6C387271F072A002C227D /* Web.swift */; };
@@ -93,6 +96,9 @@
 		1CBA5F7D27121629004295B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CBA5F8C27121701004295B3 /* Documents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documents.swift; sourceTree = "<group>"; };
 		1CBA5F8E2712171E004295B3 /* QRModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRModel.swift; sourceTree = "<group>"; };
+		1CBAD967274A56A8000DA183 /* GeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorView.swift; sourceTree = "<group>"; };
+		1CBAD96B274A93F1000DA183 /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		1CBAD96F274AABAA000DA183 /* GeneratorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorViewModel.swift; sourceTree = "<group>"; };
 		1CC0371A271F1CAA00400C86 /* WebBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebBar.swift; sourceTree = "<group>"; };
 		1CE6C383271F02F4002C227D /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		1CE6C387271F072A002C227D /* Web.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Web.swift; sourceTree = "<group>"; };
@@ -274,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				1CBA5F9027121C62004295B3 /* Main */,
+				1CBAD966274A567B000DA183 /* Generator */,
 				1C8388B0271482B1008FC54C /* History */,
 				1CE6C386271F0719002C227D /* Web */,
 				1C5591F72723003E00B1EBE7 /* Output */,
@@ -288,6 +295,7 @@
 				1CFF389F2713010F002C3E75 /* MainViewModel.swift */,
 				1CBA4DD5271D82FB0021EA96 /* HistoryViewModel.swift */,
 				1C16FAC927206DF5007E65A1 /* WebViewModel.swift */,
+				1CBAD96F274AABAA000DA183 /* GeneratorViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -295,6 +303,7 @@
 		1CBA5F8B27121655004295B3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1CBAD96B274A93F1000DA183 /* KeyboardManager.swift */,
 				1C8388AF27148205008FC54C /* Hardware */,
 				1C8388AE271481C7008FC54C /* Data Class */,
 				1C8388A8271475FD008FC54C /* Data Storage */,
@@ -321,6 +330,14 @@
 				1C308EB02713AA3C0092DD94 /* WindowSettingsView.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		1CBAD966274A567B000DA183 /* Generator */ = {
+			isa = PBXGroup;
+			children = (
+				1CBAD967274A56A8000DA183 /* GeneratorView.swift */,
+			);
+			path = Generator;
 			sourceTree = "<group>";
 		};
 		1CE6C385271F06B6002C227D /* SwiftUI+UIKit */ = {
@@ -485,10 +502,12 @@
 				1CFF38A02713010F002C3E75 /* MainViewModel.swift in Sources */,
 				1CFF389E2713004C002C3E75 /* WindowSettings.swift in Sources */,
 				1CE6C384271F02F4002C227D /* WebView.swift in Sources */,
+				1CBAD970274AABAA000DA183 /* GeneratorViewModel.swift in Sources */,
 				1C16FACA27206DF5007E65A1 /* WebViewModel.swift in Sources */,
 				1CBA4DDB271E17200021EA96 /* TopHeader.swift in Sources */,
 				1CBA5F8F2712171E004295B3 /* QRModel.swift in Sources */,
 				1CBA4DD9271DB7E90021EA96 /* SectionHeader.swift in Sources */,
+				1CBAD968274A56A8000DA183 /* GeneratorView.swift in Sources */,
 				1CE6C388271F072A002C227D /* Web.swift in Sources */,
 				1CFF38992712EB0F002C3E75 /* WindowView.swift in Sources */,
 				1C4186B627229A21002D5684 /* WebBottomBar.swift in Sources */,
@@ -502,6 +521,7 @@
 				1C16FACD27208A23007E65A1 /* Extensions+String.swift in Sources */,
 				1C1BA685271C3AB20046DE4D /* ScannerView.swift in Sources */,
 				1C8388A72714449E008FC54C /* StoreData.swift in Sources */,
+				1CBAD96C274A93F1000DA183 /* KeyboardManager.swift in Sources */,
 				1CBA5F5F27121627004295B3 /* Quick_QR_ReaderApp.swift in Sources */,
 				1C8388AD27147E52008FC54C /* Camera.swift in Sources */,
 				1CFF38A427130460002C3E75 /* UpperButtonsView.swift in Sources */,

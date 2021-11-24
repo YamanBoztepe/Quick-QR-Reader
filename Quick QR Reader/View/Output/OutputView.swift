@@ -50,7 +50,9 @@ struct OutputView: View {
     var shareButton: some View {
         HStack {
             Spacer()
-            Button(action: { }) {
+            Button(action: {
+                share(items: [content])
+            }) {
                 Image(systemName: "square.and.arrow.up")
                     .padding(8)
                     .background(Circle().stroke(lineWidth: 2))

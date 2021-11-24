@@ -11,15 +11,15 @@ class StoreData {
     // Keys for accesing data on UserDefaults
     enum StoreDataKeys: String {
         case windowSettings = "WindowSettings"
+        case generatorText = "GeneratorText"
     }
     
-    // MARK:- Save, Fetch and Replace data on UserDefaults
+    // MARK:- Save, Fetch, Replace and Delete data on UserDefaults
     static func save<T: Encodable>(data: T, key: StoreDataKeys) {
         do {
             let jsonData = try JSONEncoder().encode(data)
             let jsonString = String(data: jsonData, encoding: .utf8)
             UserDefaults.standard.setValue(jsonString, forKey: key.rawValue)
-            
         } catch {
             print(error.localizedDescription)
         }
@@ -41,8 +41,12 @@ class StoreData {
         return nil
     }
     
-    static func replaceData<T: Encodable>(with data: T, key: StoreDataKeys) {
+    static func replace<T: Encodable>(data: T, key: StoreDataKeys) {
         UserDefaults.standard.removeObject(forKey: key.rawValue)
         save(data: data, key: key)
+    }
+    
+    static func deleteData(key: StoreDataKeys) {
+        UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
 }

@@ -18,7 +18,7 @@ struct Web: View {
     var body: some View {
         GeometryReader { geometry in
             VStack {
-                WebBar(shouldLoad: $viewModel.actions.shouldLoad, url: shortURL)
+                WebBar(actions: $viewModel.actions, url: shortURL)
                     .frame(height: geometry.size.height/35)
                     .padding(.top, geometry.safeAreaInsets.top + 16)
                 WebView(actions: $viewModel.actions, url: $url)
@@ -31,7 +31,6 @@ struct Web: View {
             .ignoresSafeArea()
         }
     }
-    
 }
 
 struct Web_Previews: PreviewProvider {

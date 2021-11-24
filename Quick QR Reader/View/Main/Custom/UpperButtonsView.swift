@@ -10,19 +10,17 @@ import SwiftUI
 struct UpperButtonsView: View {
     
     var body: some View {
-            HStack {
-                Button(action: {
-                    
-                }) {
-                    createImage(systemName: "plus.circle", size: 60)
-                }
-                
-                Spacer()
-                
-                NavigationLink(destination: HistoryView()) {
-                        createImage(systemName: "line.horizontal.3.circle", size: 60)
-                    }
+        HStack {
+            NavigationLink(destination: GeneratorView()) {
+                createImage(systemName: "plus.circle", size: 60)
             }
+            
+            Spacer()
+            
+            NavigationLink(destination: HistoryView()) {
+                createImage(systemName: "line.horizontal.3.circle", size: 60)
+            }
+        }
     }
 }
 

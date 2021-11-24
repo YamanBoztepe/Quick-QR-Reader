@@ -25,9 +25,10 @@ struct HistoryView: View {
             .ignoresSafeArea()
             .navigationBarHidden(true)
             .onAppear(perform: viewModel.getData)
+            .onDisappear(perform: viewModel.deleteDummyData)
             .onReceive(viewModel.timer) { _ in viewModel.winkEffect() }
-            .onChange(of: viewModel.presentableData.shouldPresent) { _ in
-                viewModel.stopTimer()
+            .onChange(of: viewModel.presentableData.shouldPresent) { shouldPresent in
+                viewModel.timer(shouldStop: shouldPresent)
             }
             .fullScreenCover(isPresented: $viewModel.presentableData.shouldPresent) {
                 presentOutput(viewModel.presentableData.content)
@@ -37,12 +38,23 @@ struct HistoryView: View {
     
     // MARK:- Top Header
     var topHeader: some View {
-        TopHeader(previousScreen: "Main", color: .blue) {
-            self.presentationMode.wrappedValue.dismiss()
+        HStack {
+            TopHeader(previousScreen: "Main", color: .blue) {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+            
+            Spacer()
+            
+            Button(action: {
+                viewModel.isEditing.toggle()
+            }) {
+                Text(viewModel.isEditing ? "Done" : "Edit")
+                    .foregroundColor(.blue)
+                    .bold()
+            }
         }
         .frame(height: 30)
-        .padding(.bottom, 8)
-        
+        .padding([.trailing, .bottom], 8)
     }
     
     // MARK:- History
@@ -71,17 +83,20 @@ struct HistoryView: View {
     var scrollableHistory: some View {
         ScrollView(.vertical) {
             SectionHeader(value: $viewModel.isHistoryHidden, text: "History", color: .white)
-            if viewModel.data.isEmpty {
+            if viewModel.data.isEmpty || viewModel.isDummyData {
                 Text("You don't have any scan history to display.")
                     .padding()
                     .font(.headline)
                     .foregroundColor(.white)
             } else {
                 LazyVStack {
-                    ForEach(viewModel.data.indices) { index in
-                        HistoryDataView(qrModel: $viewModel.data[index],
-                                        presentableData: $viewModel.presentableData,
-                                        saveData: viewModel.saveData)
+                    ForEach(viewModel.data) { qrModel in
+                        let index = viewModel.data.firstIndex(of: qrModel)!
+                        HistoryDataView(
+                            qrModel: $viewModel.data[index],
+                            presentableData: $viewModel.presentableData,
+                            isEditing: viewModel.isEditing,
+                            saveData: viewModel.saveData)
                     }
                 }
             }
@@ -113,13 +128,17 @@ struct HistoryView: View {
     var scrollableFavorite: some View {
         ScrollView(.vertical) {
             SectionHeader(value: $viewModel.isFavHidden, text: "Favorites", color: .white)
-            if viewModel.data.contains(where: { $0.isFavorite }) {
+            if viewModel.data.contains(where: { $0.isFavorite } ) {
                 LazyVStack {
-                    ForEach(viewModel.data.indices) { index in
-                        if viewModel.data[index].isFavorite {
-                            HistoryDataView(qrModel: $viewModel.data[index],
-                                            presentableData: $viewModel.presentableData,
-                                            saveData: viewModel.saveData)
+                    ForEach(viewModel.data) { qrModel in
+                        if qrModel.isFavorite {
+                            let index = viewModel.data.firstIndex(of: qrModel)!
+                            HistoryDataView(
+                                qrModel: $viewModel.data[index],
+                                presentableData: $viewModel.presentableData,
+                                isEditing: viewModel.isEditing,
+                                saveData: viewModel.saveData
+                            )
                         }
                     }
                 }

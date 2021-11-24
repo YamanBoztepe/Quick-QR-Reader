@@ -27,6 +27,26 @@ extension View {
         modifier(Loading(isPresented: isPresented))
     }
     
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(
+            #selector(UIResponder.resignFirstResponder),
+            to: nil,
+            from: nil,
+            for: nil)
+    }
+    
+    func share(items: [Any], completion: @escaping (() -> Void) = {}) {
+        let shareSheet = UIActivityViewController(
+            activityItems: items,
+            applicationActivities: nil
+        )
+        UIApplication.shared.windows.last?.rootViewController?.present(
+            shareSheet,
+            animated: true,
+            completion: { completion() }
+        )
+    }
+    
     @ViewBuilder
     func presentOutput(_ value: String) -> some View {
         if let url = URL(string: value), UIApplication.shared.canOpenURL(url) {

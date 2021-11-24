@@ -17,7 +17,7 @@ class Documents {
         case qrDataPath = "qr.data"
     }
     
-    // MARK:- Save and Load Data in Documents
+    // MARK:- Save, Load, Delete Data in Documents
     typealias DocumentResults<U> = (Result<U,Error>) -> Void where U: Decodable
     
     func load<T: Decodable>(from path: Path, as: T.Type, completion: @escaping DocumentResults<T>) {
@@ -64,6 +64,18 @@ class Documents {
                 try jsonData.write(to: self.getFileURL(for: path))
             } catch {
                 print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func delete(path: Path) {
+        DispatchQueue.global(qos: .background).async {
+            if self.fileExists {
+                do {
+                    try FileManager.default.removeItem(atPath: path.rawValue)
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
     }

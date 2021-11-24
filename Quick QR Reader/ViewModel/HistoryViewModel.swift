@@ -13,10 +13,16 @@ class HistoryViewModel: ObservableObject {
     @Published var isFavHidden: Bool = true
     @Published var dynamicOpacity: Double = 1
     @Published var repeatAgain = false
+    @Published var isEditing = false
     @Published var presentableData = ScanResult(shouldPresent: false, content: "")
-    var timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
     
-    // MARK:- Get and Save Data in Documents
+    static let dummyDataID = "_QuickQrReaderDummyData_"
+    var timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+    var isDummyData: Bool {
+        data.contains(where: { $0.content == Self.dummyDataID } )
+    }
+    
+    // MARK:- Get, Save and Delete Data in Documents
     func getData() {
         Documents.shared.load(from: .qrDataPath, as: [QRModel].self) { result in
             switch result {
@@ -31,13 +37,36 @@ class HistoryViewModel: ObservableObject {
         }
     }
     
-    func saveData() {
+    func saveData(_ model: QRModel) {
+        if isEditing {
+            if data.count == 1 {
+                let dummyModel = QRModel(content: Self.dummyDataID, createdDate: Date())
+                data.append(dummyModel)
+            }
+            
+            guard let index = data.firstIndex(of: model) else { return }
+            data.remove(at: index)
+        }
+        
         Documents.shared.save(data, in: .qrDataPath)
     }
     
+    func deleteDummyData() {
+        if isDummyData {
+            if let index = data.firstIndex(where: { $0.content == Self.dummyDataID } ) {
+                data.remove(at: index)
+                Documents.shared.save(data, in: .qrDataPath)
+            }
+        }
+    }
+    
     // MARK:- Wink Effect
-    func stopTimer() {
-        timer.upstream.connect().cancel()
+    func timer(shouldStop: Bool) {
+        if shouldStop {
+            timer.upstream.connect().cancel()
+        } else {
+            timer = Timer.publish(every: 0.02, on: .main, in: .common).autoconnect()
+        }
     }
     
     func winkEffect() {

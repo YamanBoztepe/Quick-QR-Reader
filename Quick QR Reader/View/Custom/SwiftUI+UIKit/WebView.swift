@@ -9,6 +9,7 @@ import SwiftUI
 import WebKit
 
 struct WebView: UIViewRepresentable {
+    @Environment(\.presentationMode) var presentationMode
     @Binding var actions: WebActions
     @Binding var url: URL
     
@@ -27,6 +28,7 @@ struct WebView: UIViewRepresentable {
         let wkWebView = WKWebView(frame: .zero, configuration: configuration)
         wkWebView.navigationDelegate = context.coordinator
         wkWebView.uiDelegate = context.coordinator
+        firstLoad(wkWebView: wkWebView)
         return wkWebView
     }
     
@@ -39,6 +41,12 @@ struct WebView: UIViewRepresentable {
     }
     
     // MARK:- Actions
+    private func firstLoad(wkWebView: WKWebView) {
+        let request = URLRequest(url: url)
+        loadWebView()
+        wkWebView.load(request)
+    }
+    
     private func load(wkWebView: WKWebView) {
         if let loadedURL = wkWebView.url {
             let request = URLRequest(url: loadedURL)
@@ -51,10 +59,6 @@ struct WebView: UIViewRepresentable {
             case .idle:
                 return
             }
-        } else { // Means it's first time to load web page
-            let request = URLRequest(url: url)
-            loadWebView()
-            wkWebView.load(request)
         }
     }
     
@@ -70,11 +74,16 @@ struct WebView: UIViewRepresentable {
     
     private func shouldOpenSafari(WKWebView: WKWebView) {
         guard actions.safariButtonTapped, let url = WKWebView.url else { return }
-        UIApplication.shared.open(url, options: [:])
+        UIApplication.shared.open(url, options: [:]) { _ in
+            presentationMode.wrappedValue.dismiss()
+        }
     }
     
     private func shouldShare(WKWebView: WKWebView) {
-        // TODO: Will be implemented
+        guard actions.shareButtonTapped, let url = WKWebView.url else { return }
+        share(items: [url]) {
+            actions.shareButtonTapped = false
+        }
     }
     
     private func loadWebView() {
@@ -104,11 +113,10 @@ struct WebView: UIViewRepresentable {
             canRedirect(webView: webView)
             wkWebView.actions.reset()
         }
-
+        
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
             print("Failed to load page: \(error.localizedDescription)")
             canRedirect(webView: webView)
-            wkWebView.actions.reset()
         }
         
         func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {

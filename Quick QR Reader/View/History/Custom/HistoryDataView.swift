@@ -10,17 +10,24 @@ import SwiftUI
 struct HistoryDataView: View {
     @Binding var qrModel: QRModel
     @Binding var presentableData: ScanResult
-    let saveData: () -> Void
+    let isEditing: Bool
+    let saveData: (QRModel) -> Void
     
     var body: some View {
-        HStack {
-            Button(action: { bodyTapped() }) { informationBody }
-            Spacer()
-            favoriteButton
+        if qrModel.content != HistoryViewModel.dummyDataID {
+            HStack {
+                Button(action: { bodyTapped() }) { informationBody }
+                Spacer()
+                if isEditing {
+                    deleteButton
+                } else {
+                    favoriteButton
+                }
+            }
+            .padding()
+            .background(Color.white.opacity(0.2))
+            .frame(height: 80)
         }
-        .padding()
-        .background(Color.white.opacity(0.2))
-        .frame(height: 80)
     }
     
     var informationBody: some View {
@@ -41,9 +48,22 @@ struct HistoryDataView: View {
     var favoriteButton: some View {
         Button(action: {
             qrModel.isFavorite.toggle()
-            saveData()
+            saveData(qrModel)
         }) {
             createImage(systemName: qrModel.isFavorite ? "star.fill" : "star", size: 24)
+        }
+    }
+    
+    var deleteButton: some View {
+        Button(action: {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                saveData(qrModel)
+            }
+        }) {
+            Image(systemName: "trash")
+                .resizable()
+                .frame(width: 24, height: 24)
+                .foregroundColor(.red)
         }
     }
     
@@ -54,7 +74,7 @@ struct HistoryDataView: View {
 
 struct HistoryDataView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryDataView(qrModel: .constant(QRModel(content: "www.google.com", createdDate: Date())), presentableData: .constant(ScanResult(shouldPresent: false, content: "")), saveData: {})
+        HistoryDataView(qrModel: .constant(QRModel(content: "www.google.com", createdDate: Date())), presentableData: .constant(ScanResult(shouldPresent: false, content: "")), isEditing: true, saveData: {_ in })
             .previewLayout(.sizeThatFits)
     }
 }
