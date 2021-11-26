@@ -1,0 +1,54 @@
+//
+//  Ads.swift
+//  Quick QR Reader
+//
+//  Created by Yaman Boztepe on 26.11.2021.
+//
+
+import Foundation
+import GoogleMobileAds
+
+class Ads: NSObject, GADFullScreenContentDelegate {
+    static let shared = Ads()
+    
+    private var interstitial: GADInterstitialAd?
+    private var adWillDismess: (() -> Void)?
+    
+    func load() {
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910",
+                               request: GADRequest() )
+        { ad, error in
+            if let error = error {
+                print("Ads Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let ad = ad {
+                self.interstitial = ad
+                ad.fullScreenContentDelegate = self
+            }
+        }
+    }
+    
+    func present(_ completionHandler: @escaping () -> Void) {
+        if let interstitialAd = interstitial,
+           let root = UIApplication.shared.windows.first?.rootViewController
+        {
+            interstitialAd.present(fromRootViewController: root)
+            adWillDismess = { completionHandler() }
+        }
+        
+    }
+    
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        print("Ad did fail to present full screen content: \(error.localizedDescription)")
+    }
+    
+    func adDidPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad did present full screen content.")
+    }
+    func adWillDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        print("Ad will dismiss full screen content.")
+        adWillDismess?()
+    }
+}

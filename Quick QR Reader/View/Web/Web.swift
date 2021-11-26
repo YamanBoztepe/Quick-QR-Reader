@@ -20,15 +20,14 @@ struct Web: View {
             VStack {
                 WebBar(actions: $viewModel.actions, url: shortURL)
                     .frame(height: geometry.size.height/35)
-                    .padding(.top, geometry.safeAreaInsets.top + 16)
+                    .padding(.top, geometry.safeAreaInsets.top)
                 WebView(actions: $viewModel.actions, url: $url)
                 WebBottomBar(actions: $viewModel.actions)
                     .frame(height: geometry.size.height/35)
                     .font(.system(size: geometry.size.height/35))
-                    .padding(.bottom, geometry.safeAreaInsets.bottom + 16)
+                    .padding(.bottom, geometry.safeAreaInsets.bottom + 8)
             }
-            .background(Color.black)
-            .ignoresSafeArea()
+            .background(Color.black.ignoresSafeArea())
         }
     }
 }

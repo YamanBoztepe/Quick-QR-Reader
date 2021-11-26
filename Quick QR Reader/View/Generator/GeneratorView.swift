@@ -30,6 +30,7 @@ struct GeneratorView: View {
             .ignoresSafeArea()
             .onTapGesture { hideKeyboard() }
             .onAppear {
+                Ads.shared.load()
                 text = StoreData.getData(as: String.self, key: .generatorText) ?? ""
                 viewModel.isCodeGenerated = false
             }
@@ -63,11 +64,13 @@ struct GeneratorView: View {
     
     var generateButton: some View {
         Button(action: {
-            viewModel.generateQRCode(from: text) { image in
-                if let image = image {
-                    share(items: [image]) {
-                        hideKeyboard()
-                        viewModel.isCodeGenerated = true
+            Ads.shared.present {
+                viewModel.generateQRCode(from: text) { image in
+                    if let image = image {
+                        share(items: [image]) {
+                            hideKeyboard()
+                            viewModel.isCodeGenerated = true
+                        }
                     }
                 }
             }

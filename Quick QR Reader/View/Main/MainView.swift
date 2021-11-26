@@ -16,6 +16,12 @@ struct MainView: View {
             ScanContentView(windowSettings: $viewModel.windowSettings)
         }
         .ignoresSafeArea()
+        .onAppear { Ads.shared.load() }
+        .onChange(of: viewModel.metadataOutput.shouldPresent) { shouldPresent in
+            if shouldPresent {
+                Ads.shared.present{}
+            }
+        }
         .fullScreenCover(isPresented: $viewModel.metadataOutput.shouldPresent,
                          onDismiss: { viewModel.startScanning = true },
                          content: { presentOutput(viewModel.metadataOutput.content) })

@@ -24,7 +24,7 @@ struct HistoryView: View {
             .background(Color.black)
             .ignoresSafeArea()
             .navigationBarHidden(true)
-            .onAppear(perform: viewModel.getData)
+            .onAppear(perform: loadScreen)
             .onDisappear(perform: viewModel.deleteDummyData)
             .onReceive(viewModel.timer) { _ in viewModel.winkEffect() }
             .onChange(of: viewModel.presentableData.shouldPresent) { shouldPresent in
@@ -149,6 +149,11 @@ struct HistoryView: View {
                     .foregroundColor(.white)
             }
         }
+    }
+    
+    private func loadScreen() {
+        viewModel.getData()
+        Ads.shared.load()
     }
 }
 
