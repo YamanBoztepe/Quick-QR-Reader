@@ -68,8 +68,9 @@ struct HistoryDataView: View {
     }
     
     private func bodyTapped() {
-        Ads.shared.present{}
-        presentableData = ScanResult(shouldPresent: true, content: qrModel.content)
+        Ads.shared.present {
+            presentableData = ScanResult(shouldPresent: true, content: qrModel.content)
+        }
     }
 }
 

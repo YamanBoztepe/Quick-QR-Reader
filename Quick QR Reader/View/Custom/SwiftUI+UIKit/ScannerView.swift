@@ -52,7 +52,9 @@ struct ScannerView: UIViewControllerRepresentable {
             let result = QRModel(content: stringValue, createdDate: Date())
             
             Documents.shared.append(result, in: .qrDataPath)
-            parent.completion(.success(result))
+            Ads.shared.present {
+                self.parent.completion(.success(result))
+            }
         }
         
         // Helper Methods

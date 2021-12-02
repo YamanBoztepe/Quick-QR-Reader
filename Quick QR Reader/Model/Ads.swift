@@ -13,13 +13,15 @@ class Ads: NSObject, GADFullScreenContentDelegate {
     
     private var interstitial: GADInterstitialAd?
     private var adWillDismess: (() -> Void)?
+    private var didFail = false
     
     func load() {
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910",
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-6297661538267039/6546148975",
                                request: GADRequest() )
         { ad, error in
             if let error = error {
                 print("Ads Error: \(error.localizedDescription)")
+                self.didFail = true
                 return
             }
             
@@ -35,9 +37,14 @@ class Ads: NSObject, GADFullScreenContentDelegate {
            let root = UIApplication.shared.windows.first?.rootViewController
         {
             interstitialAd.present(fromRootViewController: root)
-            adWillDismess = { completionHandler() }
         }
         
+        adWillDismess = { completionHandler() }
+        
+        if didFail {
+            adWillDismess?()
+            didFail = false
+        }
     }
     
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {

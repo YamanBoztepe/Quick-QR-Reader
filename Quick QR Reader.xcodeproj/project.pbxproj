@@ -46,9 +46,9 @@
 		1CFF38A02713010F002C3E75 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFF389F2713010F002C3E75 /* MainViewModel.swift */; };
 		1CFF38A427130460002C3E75 /* UpperButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFF38A327130460002C3E75 /* UpperButtonsView.swift */; };
 		1CFF38A827130B74002C3E75 /* LowerButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CFF38A727130B74002C3E75 /* LowerButtonsView.swift */; };
-		9F78B61784B2D2EE86DE1624 /* Pods_Quick_QR_ReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B12D0E061AF3EE5CD4A021D /* Pods_Quick_QR_ReaderTests.framework */; };
-		B9B18E35F4DB0FFD579AB108 /* Pods_Quick_QR_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DA8C1CB15574E0C8D27A32C /* Pods_Quick_QR_Reader.framework */; };
-		FB0EDA4E192A8E1B6E357CF4 /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CB663E61C1B9027B68E3DE7 /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework */; };
+		B68CE3404CE615A21FB27BE2 /* Pods_Quick_QR_ReaderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7C269CF0401C84ABFB9AD7E /* Pods_Quick_QR_ReaderTests.framework */; };
+		B70D86DCEFF1D174A545695A /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D514BD0658DC6C1354A1B8AD /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework */; };
+		C55405DCBEAF3A6C9E4E9400 /* Pods_Quick_QR_Reader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C417FCEDDBB102B1B14C4B3F /* Pods_Quick_QR_Reader.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +69,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B12D0E061AF3EE5CD4A021D /* Pods_Quick_QR_ReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_QR_ReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0C036020571837536D45FCEE /* Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader-Quick QR ReaderUITests/Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
 		1C16FAC927206DF5007E65A1 /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 		1C16FACC27208A23007E65A1 /* Extensions+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+String.swift"; sourceTree = "<group>"; };
 		1C1BA684271C3AB20046DE4D /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
@@ -116,13 +114,15 @@
 		1CFF389F2713010F002C3E75 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		1CFF38A327130460002C3E75 /* UpperButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpperButtonsView.swift; sourceTree = "<group>"; };
 		1CFF38A727130B74002C3E75 /* LowerButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowerButtonsView.swift; sourceTree = "<group>"; };
-		5E9D3BE1A0425305AFEC6A2E /* Pods-Quick QR Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader.release.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader/Pods-Quick QR Reader.release.xcconfig"; sourceTree = "<group>"; };
-		6DA8C1CB15574E0C8D27A32C /* Pods_Quick_QR_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_QR_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7A3046F825371101A1403FDE /* Pods-Quick QR ReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR ReaderTests.debug.xcconfig"; path = "Target Support Files/Pods-Quick QR ReaderTests/Pods-Quick QR ReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8CB663E61C1B9027B68E3DE7 /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0537695E2D2B73ABCD859C0 /* Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader-Quick QR ReaderUITests/Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		B7E74B92BBFB6A7A7E6F9D86 /* Pods-Quick QR Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader.debug.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader/Pods-Quick QR Reader.debug.xcconfig"; sourceTree = "<group>"; };
-		FEEC9E11FFEB80A753DF7901 /* Pods-Quick QR ReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR ReaderTests.release.xcconfig"; path = "Target Support Files/Pods-Quick QR ReaderTests/Pods-Quick QR ReaderTests.release.xcconfig"; sourceTree = "<group>"; };
+		3C8B0A7A3D21103B240736ED /* Pods-Quick QR Reader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader.debug.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader/Pods-Quick QR Reader.debug.xcconfig"; sourceTree = "<group>"; };
+		5C1085B90C8CCBC57B32A180 /* Pods-Quick QR ReaderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR ReaderTests.debug.xcconfig"; path = "Target Support Files/Pods-Quick QR ReaderTests/Pods-Quick QR ReaderTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6A5CFF026E73FBB1A5F1F23A /* Pods-Quick QR Reader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader.release.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader/Pods-Quick QR Reader.release.xcconfig"; sourceTree = "<group>"; };
+		A69D1DF1688498260ABE27A4 /* Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader-Quick QR ReaderUITests/Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C417FCEDDBB102B1B14C4B3F /* Pods_Quick_QR_Reader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_QR_Reader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF18FEAF3A9565F02AC59DBD /* Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig"; path = "Target Support Files/Pods-Quick QR Reader-Quick QR ReaderUITests/Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D514BD0658DC6C1354A1B8AD /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7C269CF0401C84ABFB9AD7E /* Pods_Quick_QR_ReaderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quick_QR_ReaderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF9D10C421ED2DB14A6F6AE5 /* Pods-Quick QR ReaderTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quick QR ReaderTests.release.xcconfig"; path = "Target Support Files/Pods-Quick QR ReaderTests/Pods-Quick QR ReaderTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9B18E35F4DB0FFD579AB108 /* Pods_Quick_QR_Reader.framework in Frameworks */,
+				C55405DCBEAF3A6C9E4E9400 /* Pods_Quick_QR_Reader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F78B61784B2D2EE86DE1624 /* Pods_Quick_QR_ReaderTests.framework in Frameworks */,
+				B68CE3404CE615A21FB27BE2 /* Pods_Quick_QR_ReaderTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB0EDA4E192A8E1B6E357CF4 /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework in Frameworks */,
+				B70D86DCEFF1D174A545695A /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +242,7 @@
 				1CBA5F7A27121629004295B3 /* Quick QR ReaderUITests */,
 				1CBA5F5C27121627004295B3 /* Products */,
 				7098635A1813F038A28679BA /* Pods */,
-				5770C82614D513624A7E50B0 /* Frameworks */,
+				2F2F6659D48DE2732119A5AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -382,12 +382,12 @@
 			path = Web;
 			sourceTree = "<group>";
 		};
-		5770C82614D513624A7E50B0 /* Frameworks */ = {
+		2F2F6659D48DE2732119A5AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6DA8C1CB15574E0C8D27A32C /* Pods_Quick_QR_Reader.framework */,
-				8CB663E61C1B9027B68E3DE7 /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework */,
-				0B12D0E061AF3EE5CD4A021D /* Pods_Quick_QR_ReaderTests.framework */,
+				C417FCEDDBB102B1B14C4B3F /* Pods_Quick_QR_Reader.framework */,
+				D514BD0658DC6C1354A1B8AD /* Pods_Quick_QR_Reader_Quick_QR_ReaderUITests.framework */,
+				D7C269CF0401C84ABFB9AD7E /* Pods_Quick_QR_ReaderTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -395,12 +395,12 @@
 		7098635A1813F038A28679BA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				B7E74B92BBFB6A7A7E6F9D86 /* Pods-Quick QR Reader.debug.xcconfig */,
-				5E9D3BE1A0425305AFEC6A2E /* Pods-Quick QR Reader.release.xcconfig */,
-				B0537695E2D2B73ABCD859C0 /* Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig */,
-				0C036020571837536D45FCEE /* Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig */,
-				7A3046F825371101A1403FDE /* Pods-Quick QR ReaderTests.debug.xcconfig */,
-				FEEC9E11FFEB80A753DF7901 /* Pods-Quick QR ReaderTests.release.xcconfig */,
+				3C8B0A7A3D21103B240736ED /* Pods-Quick QR Reader.debug.xcconfig */,
+				6A5CFF026E73FBB1A5F1F23A /* Pods-Quick QR Reader.release.xcconfig */,
+				CF18FEAF3A9565F02AC59DBD /* Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig */,
+				A69D1DF1688498260ABE27A4 /* Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig */,
+				5C1085B90C8CCBC57B32A180 /* Pods-Quick QR ReaderTests.debug.xcconfig */,
+				FF9D10C421ED2DB14A6F6AE5 /* Pods-Quick QR ReaderTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -412,11 +412,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CBA5F8027121629004295B3 /* Build configuration list for PBXNativeTarget "Quick QR Reader" */;
 			buildPhases = (
-				9CC56DDED32EC7212530AF41 /* [CP] Check Pods Manifest.lock */,
+				83D029E4952A5C56CE5601F9 /* [CP] Check Pods Manifest.lock */,
 				1CBA5F5727121627004295B3 /* Sources */,
 				1CBA5F5827121627004295B3 /* Frameworks */,
 				1CBA5F5927121627004295B3 /* Resources */,
-				0E40A749C36232771DF99123 /* [CP] Embed Pods Frameworks */,
+				B83AD22312ACF0B02A51A5BF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -431,7 +431,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CBA5F8327121629004295B3 /* Build configuration list for PBXNativeTarget "Quick QR ReaderTests" */;
 			buildPhases = (
-				7ECD0B28A19A81BC4227D0DB /* [CP] Check Pods Manifest.lock */,
+				F976CF1DBAE3CF4FF7171596 /* [CP] Check Pods Manifest.lock */,
 				1CBA5F6827121629004295B3 /* Sources */,
 				1CBA5F6927121629004295B3 /* Frameworks */,
 				1CBA5F6A27121629004295B3 /* Resources */,
@@ -450,11 +450,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1CBA5F8627121629004295B3 /* Build configuration list for PBXNativeTarget "Quick QR ReaderUITests" */;
 			buildPhases = (
-				4FAA3677AC9419F788C40EC9 /* [CP] Check Pods Manifest.lock */,
+				C74AD7F7EE6F2046A035D25F /* [CP] Check Pods Manifest.lock */,
 				1CBA5F7327121629004295B3 /* Sources */,
 				1CBA5F7427121629004295B3 /* Frameworks */,
 				1CBA5F7527121629004295B3 /* Resources */,
-				368031EBBCB99A4BBF955CD7 /* [CP] Embed Pods Frameworks */,
+				BACE576D8F8D1EE8A58C2D76 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -535,7 +535,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0E40A749C36232771DF99123 /* [CP] Embed Pods Frameworks */ = {
+		83D029E4952A5C56CE5601F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Quick QR Reader-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B83AD22312ACF0B02A51A5BF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -552,7 +574,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quick QR Reader/Pods-Quick QR Reader-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		368031EBBCB99A4BBF955CD7 /* [CP] Embed Pods Frameworks */ = {
+		BACE576D8F8D1EE8A58C2D76 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -569,7 +591,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quick QR Reader-Quick QR ReaderUITests/Pods-Quick QR Reader-Quick QR ReaderUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4FAA3677AC9419F788C40EC9 /* [CP] Check Pods Manifest.lock */ = {
+		C74AD7F7EE6F2046A035D25F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -591,7 +613,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7ECD0B28A19A81BC4227D0DB /* [CP] Check Pods Manifest.lock */ = {
+		F976CF1DBAE3CF4FF7171596 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -607,28 +629,6 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Quick QR ReaderTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9CC56DDED32EC7212530AF41 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Quick QR Reader-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -830,11 +830,12 @@
 		};
 		1CBA5F8127121629004295B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B7E74B92BBFB6A7A7E6F9D86 /* Pods-Quick QR Reader.debug.xcconfig */;
+			baseConfigurationReference = 3C8B0A7A3D21103B240736ED /* Pods-Quick QR Reader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Quick QR Reader/Preview Content\"";
 				DEVELOPMENT_TEAM = X8F92F5YZ5;
 				ENABLE_PREVIEWS = YES;
@@ -848,17 +849,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "YamanBoztepe.Quick-QR-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		1CBA5F8227121629004295B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E9D3BE1A0425305AFEC6A2E /* Pods-Quick QR Reader.release.xcconfig */;
+			baseConfigurationReference = 6A5CFF026E73FBB1A5F1F23A /* Pods-Quick QR Reader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Quick QR Reader/Preview Content\"";
 				DEVELOPMENT_TEAM = X8F92F5YZ5;
 				ENABLE_PREVIEWS = YES;
@@ -872,13 +874,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "YamanBoztepe.Quick-QR-Reader";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		1CBA5F8427121629004295B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7A3046F825371101A1403FDE /* Pods-Quick QR ReaderTests.debug.xcconfig */;
+			baseConfigurationReference = 5C1085B90C8CCBC57B32A180 /* Pods-Quick QR ReaderTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -901,7 +903,7 @@
 		};
 		1CBA5F8527121629004295B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FEEC9E11FFEB80A753DF7901 /* Pods-Quick QR ReaderTests.release.xcconfig */;
+			baseConfigurationReference = FF9D10C421ED2DB14A6F6AE5 /* Pods-Quick QR ReaderTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -924,7 +926,7 @@
 		};
 		1CBA5F8727121629004295B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B0537695E2D2B73ABCD859C0 /* Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig */;
+			baseConfigurationReference = CF18FEAF3A9565F02AC59DBD /* Pods-Quick QR Reader-Quick QR ReaderUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -945,7 +947,7 @@
 		};
 		1CBA5F8827121629004295B3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C036020571837536D45FCEE /* Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig */;
+			baseConfigurationReference = A69D1DF1688498260ABE27A4 /* Pods-Quick QR Reader-Quick QR ReaderUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
