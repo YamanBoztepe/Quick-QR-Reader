@@ -27,23 +27,26 @@ class Ads: NSObject, GADFullScreenContentDelegate {
             
             if let ad = ad {
                 self.interstitial = ad
+                self.didFail = false
                 ad.fullScreenContentDelegate = self
             }
         }
     }
     
     func present(_ completionHandler: @escaping () -> Void) {
+        adWillDismess = { completionHandler() }
+        
         if let interstitialAd = interstitial,
            let root = UIApplication.shared.windows.first?.rootViewController
         {
             interstitialAd.present(fromRootViewController: root)
+        } else {
+            adWillDismess?()
+            return
         }
-        
-        adWillDismess = { completionHandler() }
         
         if didFail {
             adWillDismess?()
-            didFail = false
         }
     }
     
